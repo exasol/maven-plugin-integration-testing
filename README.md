@@ -2,6 +2,12 @@
 
 Java library for writing integration tests for maven plugins.
 
+## Features
+
+* Run tests with isolated local repository (the plugin won't be installed in your default local maven repository)
+* Extract code coverage
+* Debugging
+
 ## Usage
 
 ```java
@@ -46,6 +52,24 @@ private class MyPluginTest {
 Note that this is only an example. To make it work with your plugin you need to change `MY_PLUGIN_JAR` and the calls of `verifier`.
 
 For a working example check [`MavenIntegrationTestEnvironmentIT.java`](src/test/java/com/exasol/mavenpluginintegrationtesting/MavenIntegrationTestEnvironmentIT.java).
+
+### Options
+
+You can configure the verifier using system properties.
+
+#### Debugging
+
+To enable debugging append `-Dtest.debug=true` to your JVM options. This library will then configure the `Validator` to start maven with debugging enabled. This will cause maven to wait on an incoming debugger connection on port 8000. After you started the tests, you'll be able to connect using the remote-debugger of your IDE to localhost:8000.
+
+Note: The tests will wait for the debugger. So if you don't connect, the tests will not run.
+
+#### Coverage:
+
+You can enable the extraction of code coverage information by adding `-Dtest.coverage=true` to your JVM call. This library will then add a jacoco-agent from `target/jacoco-agent/org.jacoco.agent-runtime.jar` to the JVMs of the maven processes started by the `Verifier`.
+
+For this to work we need to place the jacoco agent there. We can do so using `maven-dependency-plugin`. Check out this repositories [`pom.xml`](./pom.xml) for an example. If you use project-keeper simply add the `udf-coverage` module.
+
+This agent will then write the coverage information to `target/jacoco-mvn-NUMBER-.exec` files. In order to create a report or send it to sonar you have to merge these executions into one. You can do so using the `jacoco-maven-plugin`. If you are using project-keeper simply add the `udf-coverage` module.
 
 ## Additional Information
 
