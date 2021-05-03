@@ -20,7 +20,7 @@ public class MavenIntegrationTestEnvironment {
     public static final String COVERAGE_KEY = "test.coverage";
     public static final String DEBUG_KEY = "test.debug";
     private static final Logger LOGGER = Logger.getLogger(MavenIntegrationTestEnvironment.class.getName());
-    static Path mavenRepo;
+    private static Path mavenRepo;
     private static int jacocoAgentCounter = 0;
 
     /**
@@ -32,8 +32,7 @@ public class MavenIntegrationTestEnvironment {
     }
 
     private static void createTemporaryLocalRepositoryIfNotExist() {
-        mavenRepo = Path.of(System.getProperty("java.io.tmpdir"))
-                .resolve("project-keeper-integration-test-maven-repository");
+        mavenRepo = Path.of(System.getProperty("java.io.tmpdir")).resolve("isolated-test-maven-repository");
         if (!mavenRepo.toFile().exists()) {
             mavenRepo.toFile().mkdir();
         }
@@ -64,6 +63,15 @@ public class MavenIntegrationTestEnvironment {
         return verifier;
     }
 
+    /**
+     * Get the local test maven repository.
+     * <p>
+     * This repository is maintained in a temporary folder of the operating system. By that the plugin is your real
+     * local maven repository.
+     * </p>
+     * 
+     * @return path of the local test repository
+     */
     public Path getLocalMavenRepository() {
         return mavenRepo;
     }
@@ -120,7 +128,6 @@ public class MavenIntegrationTestEnvironment {
     }
 
     private void installPlugin(final File pluginJar, final File pluginPom, final Model projectModel) {
-
         final Path folderInRepo = getPluginsInLocalRepo(projectModel).resolve(projectModel.getVersion());
         try {
             folderInRepo.toFile().mkdirs();

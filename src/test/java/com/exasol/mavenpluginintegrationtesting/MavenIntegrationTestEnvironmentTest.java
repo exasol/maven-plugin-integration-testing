@@ -50,10 +50,10 @@ class MavenIntegrationTestEnvironmentTest {
 
     @Test
     void testInvalidPom(@TempDir final Path tempDir) throws IOException {
-        final Path invalidPom = tempDir.resolve("invalidPom.xml");
-        Files.writeString(invalidPom, "invalid content");
+        final File invalidPom = tempDir.resolve("invalidPom.xml").toFile();
+        Files.writeString(invalidPom.toPath(), "invalid content");
         final IllegalStateException exception = assertThrows(IllegalStateException.class,
-                () -> testEnvironment.installPlugin(emptyJarFile, invalidPom.toFile()));
+                () -> testEnvironment.installPlugin(emptyJarFile, invalidPom));
         assertThat(exception.getMessage(), startsWith("E-MPIT-4: Failed to plugins pom file "));
     }
 

@@ -5,7 +5,7 @@
     <groupId>com.exasol</groupId>
     <artifactId>maven-plugin-integration-testing</artifactId>
     <version>0.1.0</version>
-    <name>maven-plugin-integration-testing</name>
+    <name>Maven Plugin Integration Testing</name>
     <description>Java library for writing integration tests for maven plugins.</description>
     <url>https://github.com/exasol/maven-plugin-integration-testing</url>
     <properties>
