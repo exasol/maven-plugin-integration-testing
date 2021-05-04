@@ -1,4 +1,4 @@
-# maven-plugin-integration-testing 0.1.0, released 2021-04-29
+# maven-plugin-integration-testing 0.1.0, released 2021-05-01
 
 ## Features
 
