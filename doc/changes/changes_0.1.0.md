@@ -1,5 +1,7 @@
 # maven-plugin-integration-testing 0.1.0, released 2021-05-04
 
+Code name: Initial implementation
+
 ## Features
 
 * #1: Initial implementation
