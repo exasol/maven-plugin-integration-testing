@@ -56,7 +56,7 @@ For a working example check [`MavenIntegrationTestEnvironmentIT.java`](src/test/
 
 ### Options
 
-You can configure the verifier using system properties at runtime. BY that you don't need to change your code for example to enable debugging. You simply add a command line parameter to the JVM options of the run command in your IDE. By that you can also define different run profiles in your IDE (e.g. run with debugging enabled).
+You can configure the verifier using system properties at runtime. By that you don't need to change your code for example to enable debugging. You simply add a command line parameter to the JVM options of the run command in your IDE. You can also define different run profiles in your IDE (e.g. run with debugging enabled).
 
 #### Debugging
 
