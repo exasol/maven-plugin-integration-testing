@@ -2,6 +2,9 @@
 
 Java library for writing integration tests for maven plugins.
 
+[![Build Status](https://travis-ci.com/exasol/maven-plugin-integration-testing.svg?branch=main)](https://travis-ci.com/exasol/maven-plugin-integration-testing)
+[![Maven Central](https://img.shields.io/maven-central/v/com.exasol/maven-plugin-integration-testing)](https://search.maven.org/artifact/com.exasol/maven-plugin-integration-testing)
+
 ## Features
 
 * Run tests with isolated local repository (the plugin won't be installed in your default local maven repository)
