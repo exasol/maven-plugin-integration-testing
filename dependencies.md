@@ -32,7 +32,7 @@
 | [Maven Dependency Plugin][18]                           | [The Apache Software License, Version 2.0][17] |
 | [Maven Surefire Plugin][20]                             | [Apache License, Version 2.0][1]               |
 | [Maven Failsafe Plugin][22]                             | [Apache License, Version 2.0][1]               |
-| [JaCoCo :: Maven Plugin][14]                            | [Eclipse Public License 2.0][15]               |
+| [JaCoCo :: Maven Plugin][24]                            | [Eclipse Public License 2.0][15]               |
 | [Apache Maven Compiler Plugin][26]                      | [Apache License, Version 2.0][1]               |
 | [Versions Maven Plugin][28]                             | [Apache License, Version 2.0][1]               |
 | [Apache Maven Source Plugin][30]                        | [Apache License, Version 2.0][1]               |
@@ -69,12 +69,13 @@
 [34]: http://maven.apache.org/plugins/maven-gpg-plugin/
 [6]: http://junit.org
 [15]: https://www.eclipse.org/legal/epl-2.0/
+[2]: https://maven.apache.org/ref/3.8.2/maven-model/
 [7]: http://www.eclipse.org/legal/epl-v10.html
+[24]: https://www.jacoco.org/jacoco/trunk/doc/maven.html
 [46]: http://zlika.github.io/reproducible-build-maven-plugin
 [54]: http://maven.apache.org/plugins/maven-jar-plugin/
 [1]: https://www.apache.org/licenses/LICENSE-2.0.txt
 [38]: https://maven.apache.org/enforcer/maven-enforcer-plugin/
-[2]: https://maven.apache.org/ref/3.6.3/maven-model/
 [9]: https://www.eclipse.org/legal/epl-v20.html
 [56]: http://maven.apache.org/plugins/maven-install-plugin/
 [8]: https://junit.org/junit5/
