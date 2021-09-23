@@ -2,8 +2,20 @@
 
 Java library for writing integration tests for maven plugins.
 
-[![Build Status](https://travis-ci.com/exasol/maven-plugin-integration-testing.svg?branch=main)](https://travis-ci.com/exasol/maven-plugin-integration-testing)
+[![Build Status](https://github.com/exasol/maven-plugin-integration-testing/actions/workflows/ci-build.yml/badge.svg)](https://github.com/exasol/maven-plugin-integration-testing/actions/workflows/ci-build.yml)
 [![Maven Central](https://img.shields.io/maven-central/v/com.exasol/maven-plugin-integration-testing)](https://search.maven.org/artifact/com.exasol/maven-plugin-integration-testing)
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=com.exasol%3Amaven-plugin-integration-testing&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.exasol%3Amaven-plugin-integration-testing)
+
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=com.exasol%3Amaven-plugin-integration-testing&metric=security_rating)](https://sonarcloud.io/dashboard?id=com.exasol%3Amaven-plugin-integration-testing)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.exasol%3Amaven-plugin-integration-testing&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=com.exasol%3Amaven-plugin-integration-testing)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.exasol%3Amaven-plugin-integration-testing&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=com.exasol%3Amaven-plugin-integration-testing)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=com.exasol%3Amaven-plugin-integration-testing&metric=sqale_index)](https://sonarcloud.io/dashboard?id=com.exasol%3Amaven-plugin-integration-testing)
+
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=com.exasol%3Amaven-plugin-integration-testing&metric=code_smells)](https://sonarcloud.io/dashboard?id=com.exasol%3Amaven-plugin-integration-testing)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=com.exasol%3Amaven-plugin-integration-testing&metric=coverage)](https://sonarcloud.io/dashboard?id=com.exasol%3Amaven-plugin-integration-testing)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=com.exasol%3Amaven-plugin-integration-testing&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=com.exasol%3Amaven-plugin-integration-testing)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=com.exasol%3Amaven-plugin-integration-testing&metric=ncloc)](https://sonarcloud.io/dashboard?id=com.exasol%3Amaven-plugin-integration-testing)
 
 ## Features
 
