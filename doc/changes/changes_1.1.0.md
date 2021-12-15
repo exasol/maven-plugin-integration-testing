@@ -22,3 +22,4 @@ Code name: Add Support for Projects With Parent pom
 
 * Updated `com.exasol:error-code-crawler-maven-plugin:0.6.0` to `0.7.1`
 * Updated `com.exasol:project-keeper-maven-plugin:1.2.0` to `1.3.1`
+* Updated `org.apache.maven.plugins:maven-javadoc-plugin:3.2.0` to `3.3.1`

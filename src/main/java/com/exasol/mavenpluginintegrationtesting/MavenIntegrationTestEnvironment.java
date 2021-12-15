@@ -17,7 +17,9 @@ import com.exasol.errorreporting.ExaError;
  * This class sets up an isolated local maven repository for testing maven plugins without installing them.
  */
 public class MavenIntegrationTestEnvironment {
+    /** System property name for enabling coverage measurement */
     public static final String COVERAGE_KEY = "test.coverage";
+    /** System property name for enabling debugging */
     public static final String DEBUG_KEY = "test.debug";
     private static final Logger LOGGER = Logger.getLogger(MavenIntegrationTestEnvironment.class.getName());
     private static Path mavenRepo;
