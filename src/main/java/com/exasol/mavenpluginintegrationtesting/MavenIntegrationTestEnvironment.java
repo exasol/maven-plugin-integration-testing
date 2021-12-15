@@ -134,7 +134,10 @@ public class MavenIntegrationTestEnvironment {
      * parent pom file.
      * </p>
      *
-     * @param pluginPom pom file
+     * @param pluginPom  pom file
+     * @param artifactId artifact id of the dependency
+     * @param groupId    group id of the dependency
+     * @param version    version of the dependency
      */
     public void installWithoutJar(final File pluginPom, String artifactId, String groupId, String version) {
         assertPluginPomExists(pluginPom);
