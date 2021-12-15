@@ -54,6 +54,7 @@
 [14]: https://www.eclemma.org/jacoco/index.html
 [40]: https://github.com/exasol/project-keeper-maven-plugin
 [4]: https://github.com/exasol/error-reporting-java
+[2]: https://maven.apache.org/ref/3.8.4/maven-model/
 [17]: http://www.apache.org/licenses/LICENSE-2.0.txt
 [20]: https://maven.apache.org/surefire/maven-surefire-plugin/
 [44]: http://www.sonatype.com/public-parent/nexus-maven-plugins/nexus-staging/nexus-staging-maven-plugin/
@@ -69,7 +70,6 @@
 [34]: http://maven.apache.org/plugins/maven-gpg-plugin/
 [6]: http://junit.org
 [15]: https://www.eclipse.org/legal/epl-2.0/
-[2]: https://maven.apache.org/ref/3.8.2/maven-model/
 [7]: http://www.eclipse.org/legal/epl-v10.html
 [24]: https://www.jacoco.org/jacoco/trunk/doc/maven.html
 [46]: http://zlika.github.io/reproducible-build-maven-plugin

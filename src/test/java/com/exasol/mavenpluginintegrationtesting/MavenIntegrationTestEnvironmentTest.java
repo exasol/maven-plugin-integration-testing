@@ -75,6 +75,17 @@ class MavenIntegrationTestEnvironmentTest {
     }
 
     @Test
+    void testInstallPluginWithoutJar() throws IOException {
+        final Path pluginInLocalRepo = testEnvironment.getLocalMavenRepository()
+                .resolve(Path.of("com", "example", "dummy-plugin"));
+        FileUtils.deleteDirectory(pluginInLocalRepo.toFile());
+        testEnvironment.installWithoutJar(dummyPluginPom);
+        final Path pluginVersionInRepo = pluginInLocalRepo.resolve("0.1.0");
+        assertThat(Files.readString(pluginVersionInRepo.resolve("dummy-plugin-0.1.0.pom")),
+                equalTo(Files.readString(dummyPluginPom.toPath())));
+    }
+
+    @Test
     void testCoverageEnabled(@TempDir final Path tempDir) {
         System.setProperty(COVERAGE_KEY, "true");
         final Map<String, String> mavenEnvironmentVars = testEnvironment.getVerifier(tempDir).getEnvironmentVariables();
