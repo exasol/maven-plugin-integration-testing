@@ -1,4 +1,4 @@
-# Maven Plugin Integration Testing 1.1.0, released 2021-12-16
+# Maven Plugin Integration Testing 1.1.0, released 2021-12-20
 
 Code name: Add Support for Projects With Parent pom
 
