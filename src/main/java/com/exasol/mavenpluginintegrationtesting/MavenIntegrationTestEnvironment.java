@@ -17,7 +17,9 @@ import com.exasol.errorreporting.ExaError;
  * This class sets up an isolated local maven repository for testing maven plugins without installing them.
  */
 public class MavenIntegrationTestEnvironment {
+    /** System property name for enabling coverage measurement */
     public static final String COVERAGE_KEY = "test.coverage";
+    /** System property name for enabling debugging */
     public static final String DEBUG_KEY = "test.debug";
     private static final Logger LOGGER = Logger.getLogger(MavenIntegrationTestEnvironment.class.getName());
     private static Path mavenRepo;
@@ -77,17 +79,71 @@ public class MavenIntegrationTestEnvironment {
     }
 
     /**
-     * Install a given plugin in the test maven repository.
+     * Install a given dependency in the test maven repository.
      *
      * @param pluginJar path to the plugins jar
      * @param pluginPom path to the plugins pom file
      */
     public void installPlugin(final File pluginJar, final File pluginPom) {
-        assertPluginJarExists(pluginJar);
         assertPluginPomExists(pluginPom);
         final Model projectModel = getProjectModel(pluginPom);
-        uninstallPlugin(projectModel);
-        installPlugin(pluginJar, pluginPom, projectModel);
+        installPlugin(pluginJar, pluginPom, projectModel.getArtifactId(), projectModel.getGroupId(),
+                projectModel.getVersion());
+    }
+
+    /**
+     * Install a given dependency in the test maven repository.
+     * <p>
+     * Typically you can use {@link #installPlugin(File, File)}. You need to use this method if the dependency uses a
+     * parent pom file.
+     * </p>
+     * 
+     * @param pluginJar  path to the plugins jar
+     * @param pluginPom  path to the plugins pom file
+     * @param artifactId artifact id of the dependency
+     * @param groupId    group id of the dependency
+     * @param version    version of the dependency
+     */
+    public void installPlugin(final File pluginJar, final File pluginPom, String artifactId, String groupId,
+            String version) {
+        assertPluginJarExists(pluginJar);
+        assertPluginPomExists(pluginPom);
+        installPluginInt(pluginJar, pluginPom, artifactId, groupId, version);
+    }
+
+    /**
+     * Install a dependency without a JAR in the test maven repository.
+     * <p>
+     * This is useful for installing parent pom files without java code.
+     * </p>
+     * 
+     * @param pluginPom pom file
+     */
+    public void installWithoutJar(final File pluginPom) {
+        assertPluginPomExists(pluginPom);
+        final Model projectModel = getProjectModel(pluginPom);
+        installWithoutJar(pluginPom, projectModel.getArtifactId(), projectModel.getGroupId(),
+                projectModel.getVersion());
+    }
+
+    /**
+     * Install a dependency without a JAR in the test maven repository.
+     * <p>
+     * This is useful for installing parent pom files without java code.
+     * </p>
+     * <p>
+     * Typically you can use {@link #installWithoutJar(File)}. You need to use this method if the dependency uses a
+     * parent pom file.
+     * </p>
+     *
+     * @param pluginPom  pom file
+     * @param artifactId artifact id of the dependency
+     * @param groupId    group id of the dependency
+     * @param version    version of the dependency
+     */
+    public void installWithoutJar(final File pluginPom, String artifactId, String groupId, String version) {
+        assertPluginPomExists(pluginPom);
+        installPluginInt(null, pluginPom, artifactId, groupId, version);
     }
 
     private Verifier buildVerifier(final Path projectDirectory) {
@@ -127,15 +183,19 @@ public class MavenIntegrationTestEnvironment {
         verifier.setEnvironmentVariable("MAVEN_OPTS", jacocoAgentParameter);
     }
 
-    private void installPlugin(final File pluginJar, final File pluginPom, final Model projectModel) {
-        final Path folderInRepo = getPluginsInLocalRepo(projectModel).resolve(projectModel.getVersion());
+    private void installPluginInt(final File pluginJar, final File pluginPom, String artifactId, String groupId,
+            String version) {
+        uninstallPlugin(groupId, artifactId);
+        final Path folderInRepo = getPluginInLocalRepo(groupId, artifactId).resolve(version);
         try {
-            folderInRepo.toFile().mkdirs();
-            final String fileName = projectModel.getArtifactId() + "-" + projectModel.getVersion();
-            Files.copy(pluginJar.toPath(), folderInRepo.resolve(fileName + ".jar"),
-                    StandardCopyOption.REPLACE_EXISTING);
+            Files.createDirectories(folderInRepo);
+            final String fileName = artifactId + "-" + version;
             Files.copy(pluginPom.toPath(), folderInRepo.resolve(fileName + ".pom"),
                     StandardCopyOption.REPLACE_EXISTING);
+            if (pluginJar != null) {
+                Files.copy(pluginJar.toPath(), folderInRepo.resolve(fileName + ".jar"),
+                        StandardCopyOption.REPLACE_EXISTING);
+            }
         } catch (final IOException exception) {
             throw new IllegalStateException(
                     ExaError.messageBuilder("E-MPIT-2")
@@ -144,17 +204,17 @@ public class MavenIntegrationTestEnvironment {
         }
     }
 
-    private void uninstallPlugin(final Model projectModel) {
+    private void uninstallPlugin(final String groupId, String artifactId) {
         try {
-            FileUtils.deleteDirectory(getPluginsInLocalRepo(projectModel).toFile());
+            FileUtils.deleteDirectory(getPluginInLocalRepo(groupId, artifactId).toFile());
         } catch (final IOException exception) {
             throw new IllegalStateException(ExaError.messageBuilder("E-MPIT-3")
                     .message("Failed to remove plugin from local maven repository.", exception).toString());
         }
     }
 
-    private Path getPluginsInLocalRepo(final Model projectModel) {
-        return mavenRepo.resolve(projectModel.getGroupId().replace(".", "/")).resolve(projectModel.getArtifactId());
+    private Path getPluginInLocalRepo(String groupId, String artifactId) {
+        return mavenRepo.resolve(groupId.replace(".", "/")).resolve(artifactId);
     }
 
     private Model getProjectModel(final File pluginPom) {
