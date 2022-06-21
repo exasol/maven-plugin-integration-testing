@@ -2,4 +2,4 @@ error-tags:
   MPIT:
     packages:
       - com.exasol.mavenpluginintegrationtesting
-    highest-index: 0
+    highest-index: 8
