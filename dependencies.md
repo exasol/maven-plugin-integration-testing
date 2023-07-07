@@ -6,9 +6,9 @@
 | Dependency                           | License                          |
 | ------------------------------------ | -------------------------------- |
 | [Apache Maven Verifier Component][0] | [Apache License, Version 2.0][1] |
-| [Apache Commons IO][2]               | [Apache License, Version 2.0][1] |
-| [Maven Model][4]                     | [Apache License, Version 2.0][1] |
-| [error-reporting-java][6]            | [MIT][7]                         |
+| [Apache Commons IO][2]               | [Apache-2.0][1]                  |
+| [Maven Model][4]                     | [Apache-2.0][1]                  |
+| [error-reporting-java][6]            | [MIT License][7]                 |
 
 ## Test Dependencies
 
@@ -43,7 +43,7 @@
 | [Nexus Staging Maven Plugin][40]                        | [Eclipse Public License][41]                   |
 | [Maven Failsafe Plugin][42]                             | [Apache License, Version 2.0][1]               |
 | [JaCoCo :: Maven Plugin][44]                            | [Eclipse Public License 2.0][15]               |
-| [error-code-crawler-maven-plugin][46]                   | [MIT][7]                                       |
+| [error-code-crawler-maven-plugin][46]                   | [MIT][47]                                      |
 | [Exec Maven Plugin][48]                                 | [Apache License 2][23]                         |
 | [Maven Dependency Plugin][50]                           | [The Apache Software License, Version 2.0][23] |
 | [Project keeper maven plugin][52]                       | [The MIT License][53]                          |
@@ -53,16 +53,15 @@
 | [Maven Install Plugin][60]                              | [The Apache Software License, Version 2.0][23] |
 | [Maven Site Plugin 3][62]                               | [The Apache Software License, Version 2.0][23] |
 
-[4]: https://maven.apache.org/ref/3.8.6/maven-model/
 [14]: https://www.eclemma.org/jacoco/index.html
-[6]: https://github.com/exasol/error-reporting-java
 [23]: http://www.apache.org/licenses/LICENSE-2.0.txt
 [28]: https://maven.apache.org/surefire/maven-surefire-plugin/
 [40]: http://www.sonatype.com/public-parent/nexus-maven-plugins/nexus-staging/nexus-staging-maven-plugin/
+[4]: https://maven.apache.org/ref/3.9.3/maven-model/
 [54]: http://maven.apache.org/plugins/maven-clean-plugin/
 [0]: https://maven.apache.org/shared/maven-verifier/
-[7]: https://opensource.org/licenses/MIT
 [42]: https://maven.apache.org/surefire/maven-failsafe-plugin/
+[47]: https://opensource.org/licenses/MIT
 [22]: https://www.mojohaus.org/flatten-maven-plugin/
 [48]: http://www.mojohaus.org/exec-maven-plugin
 [30]: http://www.mojohaus.org/versions-maven-plugin/
@@ -70,6 +69,7 @@
 [52]: https://github.com/exasol/project-keeper/
 [13]: http://opensource.org/licenses/BSD-3-Clause
 [18]: https://maven.apache.org/plugins/maven-compiler-plugin/
+[6]: https://github.com/exasol/error-reporting-java/
 [15]: https://www.eclipse.org/legal/epl-2.0/
 [32]: https://maven.apache.org/plugins/maven-deploy-plugin/
 [41]: http://www.eclipse.org/legal/epl-v10.html
@@ -82,6 +82,7 @@
 [1]: https://www.apache.org/licenses/LICENSE-2.0.txt
 [16]: http://sonarsource.github.io/sonar-scanner-maven/
 [20]: https://maven.apache.org/enforcer/maven-enforcer-plugin/
+[7]: https://github.com/exasol/error-reporting-java/blob/main/LICENSE
 [9]: https://www.eclipse.org/legal/epl-v20.html
 [60]: http://maven.apache.org/plugins/maven-install-plugin/
 [8]: https://junit.org/junit5/

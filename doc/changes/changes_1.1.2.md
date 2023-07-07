@@ -4,7 +4,7 @@ Code name: 1.1.2: Upgrade dependencies
 
 ## Features
 
-* #7: Upgraded dependencies to fix [sonatype-2020-0491](https://ossindex.sonatype.org/vulnerability/sonatype-2020-0491)
+* #7: Upgraded dependencies to fix sonatype-2020-0491
 
 ## Dependency Updates
 
