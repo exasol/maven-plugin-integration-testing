@@ -2,13 +2,13 @@ package com.exasol.mavenpluginintegrationtesting;
 
 import java.io.*;
 import java.nio.file.*;
+import java.util.Comparator;
 import java.util.logging.Logger;
 
 import org.apache.maven.it.VerificationException;
 import org.apache.maven.it.Verifier;
 import org.apache.maven.model.Model;
 import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
-import org.apache.maven.shared.utils.io.FileUtils;
 import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
 
 import com.exasol.errorreporting.ExaError;
@@ -33,6 +33,7 @@ public class MavenIntegrationTestEnvironment {
         printDebuggerWarning();
     }
 
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     private static void createTemporaryLocalRepositoryIfNotExist() {
         mavenRepo = Path.of(System.getProperty("java.io.tmpdir")).resolve("isolated-test-maven-repository");
         if (!mavenRepo.toFile().exists()) {
@@ -206,7 +207,7 @@ public class MavenIntegrationTestEnvironment {
 
     private void uninstallPlugin(final String groupId, String artifactId) {
         try {
-            FileUtils.deleteDirectory(getPluginInLocalRepo(groupId, artifactId).toFile());
+            deleteDirectory(getPluginInLocalRepo(groupId, artifactId));
         } catch (final IOException exception) {
             throw new IllegalStateException(ExaError.messageBuilder("E-MPIT-3")
                     .message("Failed to remove plugin from local maven repository.", exception).toString());
@@ -240,6 +241,25 @@ public class MavenIntegrationTestEnvironment {
             throw new IllegalArgumentException(
                     ExaError.messageBuilder("E-MPIT-6").message("Could not find plugins pom {{pom}}.", pluginPom)
                             .mitigation("Make sure that you specified the correct location.").toString());
+        }
+    }
+
+    /**
+     * Recursively delete the specified directory.
+     *
+     * @param path path to delete
+     * @throws IOException if deletion failed
+     */
+    @SuppressWarnings("ResultOfMethodCallIgnored")
+    protected static void deleteDirectory(Path path) throws IOException {
+        if(!Files.exists(path)) {
+            return;
+        }
+        try (var dirStream = Files.walk(path)) {
+            dirStream
+                    .map(Path::toFile)
+                    .sorted(Comparator.reverseOrder())
+                    .forEach(File::delete);
         }
     }
 }
