@@ -1,17 +1,18 @@
 package com.exasol.mavenpluginintegrationtesting;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.*;
-import java.util.Objects;
-
+import com.exasol.errorreporting.ExaError;
 import org.apache.maven.it.VerificationException;
 import org.apache.maven.it.Verifier;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
-import com.exasol.errorreporting.ExaError;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
+import java.util.Objects;
 
 class MavenIntegrationTestEnvironmentIT {
     private static final Path dummyPlugin = Path.of("src", "test", "resources", "dummy-plugin");

@@ -1,10 +1,10 @@
 package com.exasol.mavenpluginintegrationtesting;
 
-import static com.exasol.mavenpluginintegrationtesting.MavenIntegrationTestEnvironment.COVERAGE_KEY;
-import static com.exasol.mavenpluginintegrationtesting.MavenIntegrationTestEnvironment.DEBUG_KEY;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,9 +12,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Map;
 
-import org.apache.maven.shared.utils.io.FileUtils;
-import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.io.TempDir;
+import static com.exasol.mavenpluginintegrationtesting.MavenIntegrationTestEnvironment.COVERAGE_KEY;
+import static com.exasol.mavenpluginintegrationtesting.MavenIntegrationTestEnvironment.DEBUG_KEY;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 class MavenIntegrationTestEnvironmentTest {
     private static final Path dummyPlugin = Path.of("src", "test", "resources", "dummy-plugin");
@@ -31,7 +33,7 @@ class MavenIntegrationTestEnvironmentTest {
 
     @AfterAll
     static void afterAll() throws IOException {
-        Files.delete(emptyJarFile.toPath());
+        MavenIntegrationTestEnvironment.deleteDirectory(emptyJarFile.toPath());
     }
 
     @BeforeEach
@@ -69,7 +71,7 @@ class MavenIntegrationTestEnvironmentTest {
     void testInstallPlugin() throws IOException {
         final Path pluginInLocalRepo = testEnvironment.getLocalMavenRepository()
                 .resolve(Path.of("com", "example", "dummy-plugin"));
-        FileUtils.deleteDirectory(pluginInLocalRepo.toFile());
+        MavenIntegrationTestEnvironment.deleteDirectory(pluginInLocalRepo);
         testEnvironment.installPlugin(emptyJarFile, dummyPluginPom);
         assertPluginIsInstalled(pluginInLocalRepo);
     }
@@ -78,7 +80,7 @@ class MavenIntegrationTestEnvironmentTest {
     void testInstallPluginWithoutJar() throws IOException {
         final Path pluginInLocalRepo = testEnvironment.getLocalMavenRepository()
                 .resolve(Path.of("com", "example", "dummy-plugin"));
-        FileUtils.deleteDirectory(pluginInLocalRepo.toFile());
+        MavenIntegrationTestEnvironment.deleteDirectory(pluginInLocalRepo);
         testEnvironment.installWithoutJar(dummyPluginPom);
         final Path pluginVersionInRepo = pluginInLocalRepo.resolve("0.1.0");
         assertThat(Files.readString(pluginVersionInRepo.resolve("dummy-plugin-0.1.0.pom")),
