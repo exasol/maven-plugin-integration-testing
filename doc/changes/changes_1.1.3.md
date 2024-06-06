@@ -1,4 +1,4 @@
-# Maven Plugin Integration Testing 1.1.3, released 2023-??-??
+# Maven Plugin Integration Testing 1.1.3, released 2024-06-06
 
 Code name:
 
