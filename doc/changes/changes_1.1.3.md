@@ -1,6 +1,6 @@
-# Maven Plugin Integration Testing 1.1.3, released 2024-06-06
+# Maven Plugin Integration Testing 1.1.3, released 2024-06-11
 
-Code name:
+Code name: Remove transitive dependency junit:junit
 
 ## Summary
 
