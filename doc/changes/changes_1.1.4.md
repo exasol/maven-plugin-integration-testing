@@ -1,12 +1,10 @@
-# Maven Plugin Integration Testing 1.1.4, released 2025-??-??
+# Maven Plugin Integration Testing 1.1.4, released 2025-10-31
 
-Code name:
+Code name: Upgrade Project Keeper and Dependencies
 
 ## Summary
 
-## Features
-
-* ISSUE_NUMBER: description
+This release upgrades Project Keeper and dependencies.
 
 ## Dependency Updates
 
