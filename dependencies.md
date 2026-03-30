@@ -43,7 +43,7 @@
 | [Apache Maven Artifact Plugin][28]                      | [Apache-2.0][1]                             |
 | [Apache Maven Deploy Plugin][29]                        | [Apache-2.0][1]                             |
 | [Apache Maven GPG Plugin][30]                           | [Apache-2.0][1]                             |
-| [Apache Maven Source Plugin][31]                        | [Apache License, Version 2.0][1]            |
+| [Apache Maven Source Plugin][31]                        | [Apache-2.0][1]                             |
 | [Apache Maven Javadoc Plugin][32]                       | [Apache-2.0][1]                             |
 | [Central Publishing Maven Plugin][33]                   | [The Apache License, Version 2.0][1]        |
 | [Maven Failsafe Plugin][34]                             | [Apache-2.0][1]                             |
@@ -58,7 +58,7 @@
 [0]: https://maven.apache.org/shared/maven-verifier/
 [1]: https://www.apache.org/licenses/LICENSE-2.0.txt
 [2]: https://commons.apache.org/proper/commons-io/
-[3]: https://maven.apache.org/ref/3.9.11/maven-model/
+[3]: https://maven.apache.org/ref/3.9.14/maven-model/
 [4]: https://github.com/exasol/error-reporting-java/
 [5]: https://github.com/exasol/error-reporting-java/blob/main/LICENSE
 [6]: https://junit.org/
@@ -71,7 +71,7 @@
 [13]: https://maven.apache.org/plugins/maven-install-plugin/
 [14]: https://maven.apache.org/plugins/maven-resources-plugin/
 [15]: https://maven.apache.org/plugins/maven-site-plugin/
-[16]: http://docs.sonarqube.org/display/PLUG/Plugin+Library/sonar-scanner-maven/sonar-maven-plugin
+[16]: https://docs.sonarsource.com/sonarqube-server/latest/extension-guide/developing-a-plugin/plugin-basics/sonar-scanner-maven/sonar-maven-plugin/
 [17]: http://www.gnu.org/licenses/lgpl.txt
 [18]: https://maven.apache.org/plugins/maven-toolchains-plugin/
 [19]: https://maven.apache.org/plugins/maven-compiler-plugin/

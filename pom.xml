@@ -2,13 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>maven-plugin-integration-testing</artifactId>
-    <version>1.1.4</version>
+    <version>1.1.5</version>
     <name>Maven Plugin Integration Testing</name>
     <description>Java library for writing integration tests for maven plugins.</description>
     <url>https://github.com/exasol/maven-plugin-integration-testing/</url>
-    <properties>
-        <junit.version>5.10.2</junit.version>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>org.apache.maven.shared</groupId>
@@ -25,12 +22,12 @@
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.20.0</version>
+            <version>2.21.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.maven</groupId>
             <artifactId>maven-model</artifactId>
-            <version>3.9.11</version>
+            <version>3.9.14</version>
         </dependency>
         <dependency>
             <groupId>com.exasol</groupId>
@@ -41,7 +38,7 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-params</artifactId>
             <!-- Version 6 requires Java 17 -->
-            <version>5.13.4</version>
+            <version>5.14.3</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -63,7 +60,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>3.5.1</version>
+                <version>3.6.3</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -103,7 +100,7 @@
             <plugin>
                 <groupId>com.exasol</groupId>
                 <artifactId>project-keeper-maven-plugin</artifactId>
-                <version>5.4.3</version>
+                <version>5.4.6</version>
                 <executions>
                     <execution>
                         <goals>
@@ -117,7 +114,7 @@
     <parent>
         <artifactId>maven-plugin-integration-testing-generated-parent</artifactId>
         <groupId>com.exasol</groupId>
-        <version>1.1.4</version>
+        <version>1.1.5</version>
         <relativePath>pk_generated_parent.pom</relativePath>
     </parent>
 </project>
